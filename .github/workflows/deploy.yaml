@@ -15,6 +15,7 @@ jobs:
   deploy:
     runs-on: self-hosted
     name: Kestra deploy
+    needs: validate
     steps:
       # We can only deploy to one namespace at once,
       # so we have two different steps for our two namespaces product and engineering
