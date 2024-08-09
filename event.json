@@ -1,0 +1,34 @@
+{
+    "payload": {
+        "before": {
+            "id": 1,
+            "first_name": "John",
+            "last_name": "Doe",
+            "email": "john.doe@example.com",
+            "updated_at": 1672567200000
+        },
+        "after": {
+            "id": 1,
+            "first_name": "John",
+            "last_name": "Doe",
+            "email": "john.doe_new@example.com",
+            "updated_at": 1672574400000
+        },
+        "source": {
+            "version": "1.7.1.Final",
+            "connector": "postgresql",
+            "name": "dbserver1",
+            "ts_ms": 1672574400000,
+            "snapshot": "false",
+            "db": "inventory",
+            "schema": "public",
+            "table": "customers",
+            "txId": 1234,
+            "lsn": 456789,
+            "xmin": null
+        },
+        "op": "u",
+        "ts_ms": 1672574400000,
+        "transaction": null
+    }
+}

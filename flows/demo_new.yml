@@ -1,0 +1,26 @@
+id: demo_new
+namespace: demo
+description: Read CSV files and write to DuckDB using DBT
+
+tasks:
+  - id: working-directory
+    type: io.kestra.plugin.core.flow.WorkingDirectory
+    tasks:
+      - id: cloneRepository
+        type: io.kestra.plugin.git.Clone
+        url: https://github.com/benpops89/dbt_demo
+        branch: main
+
+      - id: dbt-build
+        type: io.kestra.plugin.dbt.cli.Build
+        taskRunner:
+          type: io.kestra.plugin.scripts.runner.docker.Docker
+        dbtPath: /usr/local/bin/dbt
+        containerImage: ghcr.io/kestra-io/dbt-duckdb
+        profiles: |
+          e_commerce:
+            outputs:
+              dev:
+                type: duckdb
+                path: ':memory:'
+            target: dev
