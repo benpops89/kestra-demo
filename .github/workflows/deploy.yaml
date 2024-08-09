@@ -8,6 +8,7 @@ jobs:
       - name: Validate all flows on server-side
         uses: kestra-io/validate-action@v0.14.0
         with:
+          resource: flow
           directory: ./flows
           server: http://localhost:8080
 
