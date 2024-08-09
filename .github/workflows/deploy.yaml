@@ -9,7 +9,7 @@ jobs:
         uses: kestra-io/validate-action@v0.14.0
         with:
           resource: flow
-          directory: ./kestra/flows
+          directory: ./kestra-demo/flows
           server: http://localhost:8080
 
   # If validation passed, deploy resources
@@ -24,5 +24,5 @@ jobs:
         uses: kestra-io/deploy-action@v0.16.0
         with:
           namespace: demo
-          directory: ./kestra/flows
+          directory: ./kestra-demo/flows
           server: http://localhost:8080
