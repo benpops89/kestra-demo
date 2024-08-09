@@ -1,0 +1,26 @@
+name: Kestra CI/CD
+on: [push]
+jobs:
+  validate:
+    runs-on: self-hosted
+    name: Kestra validate
+    steps:
+      - name: Validate all flows on server-side
+        uses: actions/kestra-validate-action@develop
+        with:
+          directory: ./flows
+          server: http://localhost:8080
+
+  # If validation passed, deploy resources
+  deploy:
+    runs-on: self-hosted
+    name: Kestra deploy
+    steps:
+      # We can only deploy to one namespace at once,
+      # so we have two different steps for our two namespaces product and engineering
+      - name: Deploy flows
+        uses: actions/kestra-deploy-action@develop
+        with:
+          namespace: product
+          directory: ./flows
+          server: http://localhost:8080
