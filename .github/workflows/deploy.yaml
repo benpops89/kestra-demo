@@ -10,11 +10,11 @@ jobs:
         uses: kestra-io/validate-action@develop
         with:
           resource: flow
-          directory: ./flows
+          directory: ./kestra-demo/flows
       - name: Deploy flows
         uses: kestra-io/deploy-action@v0.16.0
         with:
           namespace: demo
           resource: flow
-          directory: ./flows
+          directory: ./kestra-demo/flows
           server: kestra:8080
