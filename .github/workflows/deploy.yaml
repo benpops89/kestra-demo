@@ -12,7 +12,7 @@ jobs:
           resource: flow
           directory: ./flows
       - name: Deploy flows
-        uses: kestra-io/deploy-action@develop
+        uses: kestra-io/deploy-action@latest
         with:
           namespace: demo
           resource: flow
