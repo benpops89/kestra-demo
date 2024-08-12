@@ -21,4 +21,4 @@ jobs:
           namespace: demo
           resource: flow
           directory: ./flows
-          server: kestra:8080
+          server: http://localhost:8080
