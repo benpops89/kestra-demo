@@ -15,5 +15,6 @@ jobs:
         uses: kestra-io/deploy-action@develop
         with:
           namespace: demo
+          resource: flow
           directory: ./flows
           server: http://127.0.0.1:8080
