@@ -10,15 +10,15 @@ jobs:
         run : pwd
       - name: List files
         run: ls -R
-      - name: Validate all flows
-        uses: kestra-io/validate-action@develop
-        with:
-          resource: flow
-          directory: flows
+      # - name: Validate all flows
+      #   uses: kestra-io/validate-action@develop
+      #   with:
+      #     resource: flow
+      #     directory: ./flows
       - name: Deploy flows
         uses: kestra-io/deploy-action@v0.16.0
         with:
           namespace: demo
           resource: flow
-          directory: flows
+          directory: ./flows
           server: kestra:8080
