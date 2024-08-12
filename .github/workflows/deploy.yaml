@@ -11,10 +11,8 @@ jobs:
         with:
           resource: flow
           directory: ./flows
-          server: http://localhost:8080
       - name: Deploy flows
         uses: kestra-io/deploy-action@v0.16.0
         with:
           namespace: demo
           directory: ./flows
-          server: http://localhost:8080
