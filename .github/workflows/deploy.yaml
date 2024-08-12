@@ -16,3 +16,4 @@ jobs:
         with:
           namespace: demo
           directory: ./flows
+          server: http://127.0.0.1:8080
