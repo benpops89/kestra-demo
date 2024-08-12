@@ -7,12 +7,12 @@ jobs:
     steps:
       - uses: actions/checkout/@v3
       - name: Validate all flows
-        uses: kestra-io/validate-action@v0.14.0
+        uses: kestra-io/validate-action@develop
         with:
           resource: flow
           directory: ./flows
       - name: Deploy flows
-        uses: kestra-io/deploy-action@v0.16.0
+        uses: kestra-io/deploy-action@develop
         with:
           namespace: demo
           directory: ./flows
