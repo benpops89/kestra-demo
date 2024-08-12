@@ -6,6 +6,10 @@ jobs:
     name: Kestra validate and deploy
     steps:
       - uses: actions/checkout/@v3
+      - name: Print working directory
+        run : pwd
+      - name: List files
+        run: ls -R
       - name: Validate all flows
         uses: kestra-io/validate-action@develop
         with:
