@@ -6,17 +6,15 @@ jobs:
     name: Kestra validate and deploy
     steps:
       - uses: actions/checkout/@v3
-        with:
-          path: kestra-demo
       - name: Validate all flows
         uses: kestra-io/validate-action@develop
         with:
           resource: flow
-          directory: ./kestra-demo/flows
+          directory: ./kestra-demo/kestra-demo/flows
       - name: Deploy flows
         uses: kestra-io/deploy-action@v0.16.0
         with:
           namespace: demo
           resource: flow
-          directory: ./kestra-demo/flows
+          directory: ./kestra-demo/kestra-demo/flows
           server: kestra:8080
