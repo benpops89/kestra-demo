@@ -2,7 +2,7 @@ name: Kestra CI/CD
 on: [push]
 jobs:
   validate_and_deploy:
-    runs-on: self-hosted
+    runs-on: ubuntu-22.04
     name: Kestra validate and deploy
     steps:
       - uses: actions/checkout/@v3
@@ -10,11 +10,11 @@ jobs:
         run : pwd
       - name: List files
         run: ls -R
-      # - name: Validate all flows
-      #   uses: kestra-io/validate-action@develop
-      #   with:
-      #     resource: flow
-      #     directory: ./flows
+      - name: Validate all flows
+        uses: kestra-io/validate-action@develop
+        with:
+          resource: flow
+          directory: ./flows
       - name: Deploy flows
         uses: kestra-io/deploy-action@v0.16.0
         with:

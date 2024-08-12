@@ -61,13 +61,3 @@ services:
     depends_on:
       postgres:
         condition: service_started
-  runner:
-    image: myoung34/github-runner:latest
-    container_name: runner
-    environment:
-      REPO_URL: https://github.com/benpops89/kestra-demo
-      RUNNER_TOKEN: ${RUNNER_TOKEN}
-      RUNNER_NAME: docker-runner
-      LABELS: self-hosted,Linux,X64
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
