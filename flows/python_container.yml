@@ -9,6 +9,13 @@ tasks:
       credentials:
         username: benpops89
         password: "{{ secret('GITHUB_ACCESS_TOKEN') }}"
-    containerImage: ghcr.io/benpops89/hello:0.1
+    containerImage: ghcr.io/benpops89/hello:0.2
     commands:
-      - python hello.py
+      - "python"
+      - "/app/hello.py"
+
+errors:
+  - id: alert_on_failure
+    type: io.kestra.plugin.core.http.Request
+    uri:
+    method: POST
