@@ -1,0 +1,14 @@
+id: python-container
+namespace: demo
+
+tasks:
+  - id: custom_image
+    type: io.kestra.plugin.scripts.python.Commands
+    taskRunner:
+      type: io.kestra.plugin.scripts.runner.docker.Docker
+      credentials:
+        username: benpops89
+        password: "{{ secret('GITHUB_ACCESS_TOKEN') }}"
+    containerImage: ghcr.io/benpops89/hello:0.1
+    commands:
+      - python hello.py
